@@ -49,7 +49,14 @@ const VERSIONS = [
 
 const REGIONS = ['🇪🇺 Европа', '🇷🇺 Россия', '🇹🇷 Турция', '🇰🇿 Казахстан'];
 
-const GAMES = ['Neon Drift', 'Cyber Siege', 'Void Runner', 'Ghost Protocol', 'Synth Arena', 'Pulse Wars'];
+const GAMES = [
+  { title: 'Cyberpunk 2077', img: 'https://cdn.poehali.dev/projects/7723bd69-f535-45f6-9d71-53de464c2a8d/files/b8f6175b-ff2c-46c4-9d24-aa4c8371a08f.jpg' },
+  { title: 'Elden Ring', img: 'https://cdn.poehali.dev/projects/7723bd69-f535-45f6-9d71-53de464c2a8d/files/e92fb7ca-e602-488b-8e4c-4562b3746f3b.jpg' },
+  { title: 'Counter-Strike 2', img: 'https://cdn.poehali.dev/projects/7723bd69-f535-45f6-9d71-53de464c2a8d/files/3c2e97d7-e131-47a0-bc2e-87ba5d7fb9f9.jpg' },
+  { title: "Baldur's Gate 3", img: 'https://cdn.poehali.dev/projects/7723bd69-f535-45f6-9d71-53de464c2a8d/files/e06e599e-7726-41fe-b25a-941a98797fe7.jpg' },
+  { title: 'GTA V', img: 'https://cdn.poehali.dev/projects/7723bd69-f535-45f6-9d71-53de464c2a8d/files/9279ec41-1849-48b6-9316-aa51bbdd9f65.jpg' },
+  { title: 'It Takes Two', img: 'https://cdn.poehali.dev/projects/7723bd69-f535-45f6-9d71-53de464c2a8d/files/df1ec836-4b8f-4e79-ac29-71f8a02209f2.jpg' },
+];
 
 export default function Index() {
   const { toast } = useToast();
@@ -219,15 +226,16 @@ api.registerApp('my-cool-mod')
         <div className="container mx-auto px-4">
           <SectionTitle badge="ГАЛЕРЕЯ ИГР" title="Библиотека без границ" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-            {GAMES.map((g, i) => (
-              <div key={g}
+            {GAMES.map((g) => (
+              <div key={g.title}
                 className="relative h-52 rounded-xl overflow-hidden border border-border group cursor-pointer">
-                <div className={`absolute inset-0 ${i % 2 ? 'bg-gradient-to-br from-neon-red/40 to-black' : 'bg-gradient-to-br from-neon-red/25 to-neon-purple/30'}`} />
-                <div className="absolute inset-0 cyber-grid opacity-30" />
+                <img src={g.img} alt={g.title}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
                 <div className="absolute inset-0 flex flex-col justify-end p-5">
-                  <Icon name="Gamepad2" size={28} className="text-white/80 mb-2 group-hover:scale-125 transition-transform" />
-                  <h3 className="font-display font-bold text-xl text-white text-glow-red">{g}</h3>
-                  <span className="text-xs text-white/70 font-display tracking-widest">EXCLUSIVE</span>
+                  <Icon name="Gamepad2" size={22} className="text-white/80 mb-2 group-hover:scale-125 transition-transform" />
+                  <h3 className="font-display font-bold text-xl text-white text-glow-red">{g.title}</h3>
+                  <span className="text-xs text-white/70 font-display tracking-widest">STEAM HIT</span>
                 </div>
               </div>
             ))}
