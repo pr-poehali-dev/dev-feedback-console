@@ -285,6 +285,10 @@ api.registerApp('my-cool-mod')
                 <h2 className="font-display font-black text-3xl md:text-4xl mb-4">
                   Поддержи нас на <span className="text-neon-red text-glow-red">Kickstarter</span>
                 </h2>
+                <div className="flex items-center gap-2 mb-4 text-neon-red font-display font-bold text-sm">
+                  <Icon name="CalendarDays" size={18} />
+                  Старт кампании: 1 января 2027
+                </div>
                 <p className="text-muted-foreground mb-6">
                   Стань частью запуска X-SMASH. Первые волны поставок — в Европе, России, Турции и Казахстане.
                   Все бэкеры кампании получают эксклюзивную привилегию.
