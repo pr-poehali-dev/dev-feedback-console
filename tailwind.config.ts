@@ -28,6 +28,7 @@ export default {
 					magenta: '#ff2fd0',
 					purple: '#7b2fff',
 					lime: '#c6ff00',
+					red: '#ff2b3e',
 				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
